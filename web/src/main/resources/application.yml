@@ -1,0 +1,22 @@
+server:
+  port: 1000
+
+dubbo:
+  consumer:
+    check: false
+  registry:
+    #挂载到 Spring Cloud 注册中心
+    address: spring-cloud://192.168.99.100
+  cloud:
+    #表示服务的提供方
+    subscribed-services: spring-cloud-service-server,spring-cloud-service-server2
+
+spring:
+  application:
+    name: spring-cloud-nacas-client
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.99.100:8848

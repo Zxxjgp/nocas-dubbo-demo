@@ -1,0 +1,28 @@
+
+dubbo:
+  scan:
+    base-packages: nocas.dubbo.demo
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    #挂载到 Spring Cloud 注册中心
+    address: spring-cloud://192.168.99.100
+  cloud:
+    subscribed-services: ""
+
+spring:
+  application:
+    name: spring-cloud-service-server2
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        enabled: true
+        register-enabled: true
+        server-addr: 192.168.99.100:8848
+server:
+  port: 1234
