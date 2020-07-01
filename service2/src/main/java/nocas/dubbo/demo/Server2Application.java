@@ -1,7 +1,7 @@
 package nocas.dubbo.demo;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @date 2020/6/30  16:29
  */
 @EnableDiscoveryClient
-@SpringBootApplication
+@EnableAutoConfiguration
 public class Server2Application {
     public static void main(String[] args) {
         SpringApplication.run(Server2Application.class, args);

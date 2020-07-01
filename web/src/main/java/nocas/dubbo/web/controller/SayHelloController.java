@@ -1,6 +1,6 @@
 package nocas.dubbo.web.controller;
 
-import lombok.extern.slf4j.Slf4j;
+import nocas.dubbo.api.PathService;
 import nocas.dubbo.api.SayHello;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,24 +17,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("test")
 public class SayHelloController {
 
-    @Reference(protocol = "dubbo", version = "1.0.0")
-    private SayHello sayHello1;
 
-    @Reference(protocol = "dubbo", version = "2.0.0")
-    private SayHello sayHello2;
 
-    @GetMapping("hello1/{str}")
-    public String hello1(@PathVariable("str") String str) {
-        return sayHello1.sayHello(str);
+    @Reference(group = "sayHelloImpl3")
+    private SayHello sayHelloImpl3;
+
+
+    @Reference(version = "1.0.0")
+    private PathService pathService;
+
+    @GetMapping("hello3/{str}")
+    public String hello3(@PathVariable("str") String str) {
+        return sayHelloImpl3.sayHello(str);
     }
 
 
-
-    @GetMapping("hello2/{str}")
-    public String hello2(@PathVariable("str") String str) {
-        return sayHello2.sayHello(str);
+    @GetMapping("path1/{str}")
+    public String path1(@PathVariable("str") String str) {
+        return pathService.headers("a", "b", 10);
     }
-
 
 }
 

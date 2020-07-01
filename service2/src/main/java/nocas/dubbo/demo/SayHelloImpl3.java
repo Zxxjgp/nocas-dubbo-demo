@@ -1,4 +1,4 @@
-package nocas.dubbo.service;
+package nocas.dubbo.demo;
 
 import nocas.dubbo.api.SayHello;
 import org.apache.dubbo.config.annotation.Service;
@@ -6,13 +6,13 @@ import org.apache.dubbo.config.annotation.Service;
 /**
  * @author jiaoguanping
  * @version 1.0.0
- * @ClassName SayHelloImpl
- * @date 2020/6/30  11:31
+ * @date 2020/6/30  18:49
  */
-@Service(version = "1.0.0")
-public class SayHelloImpl implements SayHello {
+@Service(group = "sayHelloImpl3")
+public class SayHelloImpl3 implements SayHello {
+
     @Override
     public String sayHello(String str) {
-        return "hello一号" + str;
+        return "hello 三号" + str;
     }
 }

@@ -20,3 +20,4 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.99.100:8848
+        group: service-provide-sayhello-comtuser
