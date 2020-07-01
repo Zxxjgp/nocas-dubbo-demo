@@ -14,6 +14,7 @@ import javax.ws.rs.*;
  */
 @Slf4j
 @Service(version = "1.0.0")
+@Path("/")
 public class PathServiceImpl implements PathService {
 
     @Override

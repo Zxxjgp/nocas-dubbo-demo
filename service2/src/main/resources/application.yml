@@ -9,7 +9,6 @@ dubbo:
     address: spring-cloud://192.168.99.100
   cloud:
     subscribed-services: ""
-
 spring:
   application:
     name: spring-cloud-service-server2
