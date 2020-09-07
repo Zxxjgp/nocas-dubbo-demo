@@ -6,20 +6,20 @@ dubbo:
     port: -1
   registry:
     #挂载到 Spring Cloud 注册中心
-    address: spring-cloud://192.168.99.100
+    address: spring-cloud://47.93.248.56
   cloud:
     subscribed-services: ""
+
 spring:
   application:
-    name: spring-cloud-service-server2
+    name: spring-cloud-nacas-server1
   main:
     allow-bean-definition-overriding: true
   cloud:
     nacos:
-      username: nacos
-      password: nacos
       discovery:
-        enabled: true
-        register-enabled: true
-        server-addr: 192.168.99.100:8848
-        group: service-provide-sayhello-comtuser
+        server-addr: 47.93.248.56:8848
+        group: service-provide-sayhello-server
+        namespace: c1a7a573-39e6-4bd2-9b0c-7da53efba5a3
+        username: nacos
+        password: nacos

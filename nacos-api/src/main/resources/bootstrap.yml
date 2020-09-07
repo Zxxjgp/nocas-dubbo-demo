@@ -1,0 +1,31 @@
+
+spring:
+  application:
+    name: api1
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        namespace: c1a7a573-39e6-4bd2-9b0c-7da53efba5a3
+        server-addr: 47.93.248.56:8848
+        enable-remote-sync-config: true
+        refresh-enabled: true
+        name: coud-api1
+        group: test
+      discovery:
+        namespace: c1a7a573-39e6-4bd2-9b0c-7da53efba5a3
+        server-addr: 47.93.248.56:8848
+        register-enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: query_route1
+          uri: lb://server1
+          predicates:
+            - Path=/index/**
+        - id: query_route2
+          uri: lb://server2
+          predicates:
+            - Path=/index2/**

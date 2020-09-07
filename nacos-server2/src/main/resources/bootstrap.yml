@@ -1,0 +1,19 @@
+
+spring:
+  application:
+    name: server2
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        namespace: c1a7a573-39e6-4bd2-9b0c-7da53efba5a3
+        server-addr: 47.93.248.56:8848
+        enable-remote-sync-config: true
+        refresh-enabled: true
+        name: cloud-server2
+        group: test
+      discovery:
+        namespace: c1a7a573-39e6-4bd2-9b0c-7da53efba5a3
+        server-addr: 47.93.248.56:8848
+        register-enabled: true
+
