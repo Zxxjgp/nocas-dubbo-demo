@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/9/7  21:00
  */
 @RestController
-@RequestMapping("index2")
-public class IndexController {
+@RequestMapping("index")
+public class Index1Controller {
 
     @GetMapping("test")
     public String get() {
-        return "02";
+        return "01";
     }
 }

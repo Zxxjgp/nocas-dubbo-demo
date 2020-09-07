@@ -22,7 +22,7 @@ spring:
           enabled: true
       routes:
         - id: query_route1
-          uri: lb://server1
+          uri: lb://server2
           predicates:
             - Path=/index/**
         - id: query_route2
