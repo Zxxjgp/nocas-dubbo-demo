@@ -17,15 +17,10 @@ spring:
         server-addr: 47.93.248.56:8848
         register-enabled: true
     gateway:
-      discovery:
-        locator:
-          enabled: true
       routes:
         - id: query_route1
-          uri: lb://server2
+          uri: air://wx.bj.abchina.com/customer-api/bjts
           predicates:
-            - Path=/index/**
-        - id: query_route2
-          uri: lb://server2
-          predicates:
-            - Path=/index2/**
+            - Path=/air/**
+          filters:
+            - Air=213

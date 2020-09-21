@@ -2,6 +2,8 @@ package com.nacos.api.config;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.cloud.gateway.filter.factory.rewrite.ModifyRequestBodyGatewayFilterFactory;
+import org.springframework.cloud.gateway.handler.predicate.ReadBodyPredicateFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
@@ -21,8 +23,6 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
 
     private static String WITHPARAMS = "withParams";
 
-
-
     public AuthGatewayFilterFactory(){
         super(Config.class);
     }
@@ -35,7 +35,8 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
     @Override
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
-            System.out.println(config);
+            Object cachedBody = exchange.getAttribute("cachedRequestBodyObject");
+            System.out.println(cachedBody);
             ServerHttpRequest build = exchange.getRequest().mutate().header("userId", "1234567").build();
             ServerWebExchange build1 = exchange.mutate().request(build).build();
             return chain.filter(build1);

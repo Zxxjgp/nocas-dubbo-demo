@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api" />
+        <module name="guice" />
         <module name="nacosapi" />
         <module name="nacosboot" />
         <module name="nacosserver1" />
         <module name="nacosserver2" />
+        <module name="redisdemokey" />
         <module name="service2" />
         <module name="web" />
       </profile>
